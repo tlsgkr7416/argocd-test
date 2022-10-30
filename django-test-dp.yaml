@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: django-test
+  template:
+    metadata:
+      labels:
+        app: django-test
+    spec:
+      containers:
+      - image: tlsgkr7416/github-action-test:5.0
+        name: github-action-test
+        ports:
+        - containerPort: 8000
